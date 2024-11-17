@@ -1,7 +1,8 @@
+import { ReactElement } from "react"
 
 interface QuizHeaderProps {
     section: string
-    title: string
+    title: string | ReactElement
 }
 
 export const QuizHeader = ({ section, title }: QuizHeaderProps) => {
