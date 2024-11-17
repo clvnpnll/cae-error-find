@@ -1,11 +1,19 @@
-# React + TypeScript + Vite
+## Error Find
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple quiz app that tests the grammar knowledge of users. This app fetches the activities and questions from an API, and then displays the score once the user is done answering all rounds of questions.
 
-Currently, two official plugins are available:
+The app supports two modes/flows:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Single Round flow: Shows all questions consecutively. This is treated as a single round of questions.
+- Multiple Round flow: Shows one round of questions at a time. The user will be notified of transition between rounds of questions.
+
+## Updating API Endpoints
+
+The API URL for fetching the activities are configured via environment variables. Please refer below for the list of env variables
+
+- `VITE_ACTIVITIES_API_URL`: URL to fetch the list of activities and questions
+
+Once done updating the necessary env variables, trigger a deployment to reflect the changes.
 
 ## Expanding the ESLint configuration
 

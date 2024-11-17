@@ -5,7 +5,6 @@ import QuizPage from './pages/quiz';
 import ResultsPage from './pages/result';
 import { useEffect } from 'react';
 import { useActivityStore } from '../store/useActivityStore';
-import { ACTIVITIES_URL } from '../constants/constants';
 import NotFound from './pages/not-found';
 
 const router = createBrowserRouter(
@@ -25,7 +24,7 @@ function App() {
 
   useEffect(() => {
     const fetchActivities = async () => {
-      const res = await axios.get(ACTIVITIES_URL);
+      const res = await axios.get(import.meta.env.VITE_ACTIVITIES_API_URL);
 
       if (res.status == axios.HttpStatusCode.Ok) {
         setActivities(res.data.activities);
