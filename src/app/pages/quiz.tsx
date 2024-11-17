@@ -6,6 +6,7 @@ import { QuizHeader } from '../../components/quizHeader';
 import { useNavigate } from 'react-router-dom';
 import { QUIZ_MODE } from '../../constants/enum';
 import { BOOLEAN_CHOICES } from '../../constants/constants';
+import Button from '../../components/button';
 
 interface Question {
   is_correct: boolean
@@ -85,19 +86,13 @@ const QuizPage = () => {
         />
         {
           showRoundTitle ? (
-            <button 
-              className="flex w-full px-20 py-4 mt-12 hover:bg-[#444]"
-              onClick={() => setShowRoundTitle(false)} 
-            >
-              {"Continue"}
-            </button>
+            <Button label="Continue" align="left" onClick={() => setShowRoundTitle(false)} />
           ) : (
             <Question 
               question={question.stimulus} 
               choices={BOOLEAN_CHOICES}
               onSubmit={handleSubmitQuestion}
             />
-          
           )
         }
       </div>

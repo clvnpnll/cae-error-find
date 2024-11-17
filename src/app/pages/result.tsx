@@ -3,6 +3,7 @@ import { useActivityStore } from '../../store/useActivityStore';
 import { useAnswerSheet } from '../../store/useAnswerSheet';
 import { QuizHeader } from '../../components/quizHeader';
 import { useNavigate } from 'react-router-dom';
+import Button from '../../components/button';
 
 const ResultsPage = () => {
   const navigate = useNavigate();
@@ -36,7 +37,10 @@ const ResultsPage = () => {
           const correct = answerSheet[questionKey].answer == item.is_correct;
 
           items.push(
-            <div className='py-4 px-20 flex justify-between' key={idx}>
+            <div 
+              key={idx}
+              className={`py-4 px-20 flex justify-between ${correct ? 'bg-green-50' : 'bg-red-50'}`}
+            >
               <p>Q{item.order}</p>
               <p className={correct ? 'text-green-600' : 'text-red-600'}>{correct ? "Correct" : "Incorrect"}</p>
             </div>
@@ -49,7 +53,10 @@ const ResultsPage = () => {
         console.log(answerSheet[questionKey]);
         const correct = answerSheet[questionKey].answer == question.is_correct;
         return (
-          <div className='py-4 px-20 flex justify-between' key={idx}>
+          <div 
+            key={idx}
+            className={`py-4 px-20 flex justify-between ${correct ? 'bg-green-50' : 'bg-red-50'}`}
+          >
             <p>Q{question.order}</p>
             <p className={correct ? 'text-green-600' : 'text-red-600'}>{correct ? "Correct" : "Incorrect"}</p>
           </div>
@@ -61,15 +68,10 @@ const ResultsPage = () => {
   return (
     <div className='py-8 w-full'>
       <QuizHeader section={activity.activity_name} title="Results" />
-      <div className='flex flex-col w-full divide-y border-y'>
+      <div className='flex flex-col w-full divide-y border-y mb-12'>
         {renderResults()}
       </div>
-      <button 
-          className="flex w-full px-12 py-4 mt-12 justify-center hover:bg-[#444]"
-          onClick={handleHome} 
-        >
-          Home
-        </button>
+      <Button label="Home" align="center" onClick={handleHome} />
     </div>
   )
 }

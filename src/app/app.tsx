@@ -6,6 +6,7 @@ import ResultsPage from './pages/result';
 import { useEffect } from 'react';
 import { useActivityStore } from '../store/useActivityStore';
 import { ACTIVITIES_URL } from '../constants/constants';
+import NotFound from './pages/not-found';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -14,6 +15,7 @@ const router = createBrowserRouter(
       <Route path="home" element={<HomePage />} />
       <Route path="quiz" element={<QuizPage />} />
       <Route path="results" element={<ResultsPage />} />
+      <Route path="*" element={<NotFound />} />
     </Route>
   )
 )

@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useActivityStore } from '../../store/useActivityStore';
 import { useAnswerSheet } from '../../store/useAnswerSheet';
 import { useEffect } from 'react';
+import { QuizHeader } from '../../components/quizHeader';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -23,15 +24,14 @@ const HomePage = () => {
 
   return (
     <div className='py-8'>
-      <div className='px-12 pt-8 uppercase font-bold text-xl'>CAE</div>
-      <div className='px-12 py-12 font-bold text-6xl'>Error Find</div>
-      <div className="flex w-full">
+      <QuizHeader section='CAE' title="Error Find" />
+      <div className="flex flex-col w-full divide-y border-y">
         {
           activities.map((activity, idx) => {
             return (
               <button
                 key={idx}
-                className='flex w-full items-center uppercase justify-center p-8 border-y hover:bg-[#444]'
+                className='flex w-full items-center uppercase justify-center p-8 font-bold hover:bg-slate-100'
                 onClick={() => openActivity(idx)}
               >
                 {activity.activity_name}
