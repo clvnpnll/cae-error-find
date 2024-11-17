@@ -10,6 +10,7 @@ import { ACTIVITIES_URL } from '../constants/constants';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
+      <Route index element={<HomePage />} />
       <Route path="home" element={<HomePage />} />
       <Route path="quiz" element={<QuizPage />} />
       <Route path="results" element={<ResultsPage />} />
