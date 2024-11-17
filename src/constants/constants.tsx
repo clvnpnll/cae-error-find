@@ -8,4 +8,5 @@ export const BOOLEAN_CHOICES = [
       value: false,
     }
 ];
-  
+
+export const ACTIVITIES_URL = "https://s3.eu-west-2.amazonaws.com/interview.mock.data/payload.json";
