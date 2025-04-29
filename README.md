@@ -1,4 +1,4 @@
-## Error Find
+## Grammar Check
 
 This is a simple quiz app that tests the grammar knowledge of users. This app fetches the activities and questions from an API, and then displays the score once the user is done answering all rounds of questions.
 
