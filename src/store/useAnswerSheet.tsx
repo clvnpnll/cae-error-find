@@ -3,7 +3,7 @@ import { persist } from "zustand/middleware";
 
 type AnswerSheet = {
   [key: string]: any;
-}
+};
 
 type AnswerSheetStore = {
   answerSheet: AnswerSheet;
@@ -19,19 +19,25 @@ type AnswerSheetStore = {
 };
 
 export const useAnswerSheet = create<AnswerSheetStore>()(
-  persist((set) => ({
-    answerSheet: [],
-    questionIndex: 0,
-    roundIndex: 0,
-    activityIndex: null,
-    quizDone: false,
-    setAnswerSheet: (answerSheet: object) => set(() => ({ answerSheet: answerSheet })),
-    setQuestionIndex: (questionIndex: number) =>
-      set(() => ({ questionIndex: questionIndex })),
-    setRoundIndex: (roundIndex: number) => set(() => ({ roundIndex: roundIndex })),
-    setActivityIndex: (activityIndex: number | null) => set(() => ({ activityIndex: activityIndex })),
-    setQuizDone: (quizDone: boolean) => set(() => ({ quizDone: quizDone })),
-  }), {
-    name: "answer-sheet",
-  })
+  persist(
+    (set) => ({
+      answerSheet: {},
+      questionIndex: 0,
+      roundIndex: 0,
+      activityIndex: null,
+      quizDone: false,
+      setAnswerSheet: (answerSheet: object) =>
+        set(() => ({ answerSheet: answerSheet })),
+      setQuestionIndex: (questionIndex: number) =>
+        set(() => ({ questionIndex: questionIndex })),
+      setRoundIndex: (roundIndex: number) =>
+        set(() => ({ roundIndex: roundIndex })),
+      setActivityIndex: (activityIndex: number | null) =>
+        set(() => ({ activityIndex: activityIndex })),
+      setQuizDone: (quizDone: boolean) => set(() => ({ quizDone: quizDone })),
+    }),
+    {
+      name: "answer-sheet",
+    }
+  )
 );

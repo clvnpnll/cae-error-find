@@ -30,7 +30,7 @@ const HomePage = () => {
   };
 
   return (
-    <div className="py-8">
+    <div>
       <QuizHeader section="CAE" title="Grammar Check" />
       <div className="flex flex-col w-full divide-y border-y mb-12">
         {activities.map((activity, idx) => {
@@ -47,6 +47,7 @@ const HomePage = () => {
       </div>
       <Button
         disabled={!quizDone}
+        // className="bg-teal-500 text-white"
         label="Results"
         align="center"
         onClick={() => navigate("/results")}

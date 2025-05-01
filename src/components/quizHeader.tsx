@@ -1,16 +1,17 @@
-import { ReactElement } from "react"
+import { ReactElement } from "react";
 
 interface QuizHeaderProps {
-    section: string
-    title: string | ReactElement
+  section: string;
+  title: string | ReactElement;
 }
 
 export const QuizHeader = ({ section, title }: QuizHeaderProps) => {
-    return (
-      <>
-        <div className='px-12 pt-8 uppercase font-bold text-xl'>{section}</div>
-        <div className='px-12 py-12 font-bold text-6xl'>{title}</div>
-      </>
-    )
-  }
-  
+  return (
+    <>
+      <div className="px-8 pt-4 md:px-12 md:pt-8 uppercase font-bold md:text-xl text-md">
+        {section}
+      </div>
+      <div className="p-8 md:p-12 font-bold md:text-6xl text-4xl">{title}</div>
+    </>
+  );
+};

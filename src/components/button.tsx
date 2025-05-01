@@ -9,7 +9,7 @@ interface ButtonProps {
 const Button = (props: ButtonProps) => {
   const { onClick, label, align = "left", disabled = false, className } = props;
   const disabledClass =
-    "disabled:hover:bg-slate-100 disabled:bg-slate-100 disabled:text-slate-400 disabled:cursor-not-allowed";
+    "disabled:hover:bg-gray-300 disabled:bg-gray-300 disabled:cursor-not-allowed";
   const alignClass =
     align == "center"
       ? "justify-center"
@@ -20,7 +20,7 @@ const Button = (props: ButtonProps) => {
   return (
     <button
       disabled={disabled}
-      className={`flex w-full px-16 py-4 bg-slate-50 hover:bg-slate-100 font-medium uppercase border-y 
+      className={`flex w-full px-14 py-4 text-white bg-teal-500 hover:bg-teal-600 font-medium uppercase border-y 
         ${disabledClass} ${alignClass} ${className}`}
       onClick={onClick}
     >

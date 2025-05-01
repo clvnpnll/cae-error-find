@@ -1,11 +1,16 @@
-import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
-import axios from 'axios';
-import HomePage from './pages/home';
-import QuizPage from './pages/quiz';
-import ResultsPage from './pages/result';
-import { useEffect } from 'react';
-import { useActivityStore } from '../store/useActivityStore';
-import NotFound from './pages/not-found';
+import {
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider,
+} from "react-router-dom";
+import axios from "axios";
+import HomePage from "./pages/home";
+import QuizPage from "./pages/quiz";
+import ResultsPage from "./pages/result";
+import { useEffect } from "react";
+import { useActivityStore } from "../store/useActivityStore";
+import NotFound from "./pages/not-found";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -17,7 +22,7 @@ const router = createBrowserRouter(
       <Route path="*" element={<NotFound />} />
     </Route>
   )
-)
+);
 
 function App() {
   const { setActivities } = useActivityStore();
@@ -29,13 +34,15 @@ function App() {
       if (res.status == axios.HttpStatusCode.Ok) {
         setActivities(res.data.activities);
       }
-    }
+    };
 
     fetchActivities();
   }, []);
 
   return (
-    <RouterProvider router={router}/>
+    <div className="py-4 md:py-8">
+      <RouterProvider router={router} />
+    </div>
   );
 }
 

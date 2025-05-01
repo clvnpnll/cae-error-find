@@ -82,7 +82,7 @@ const ResultsPage = () => {
       if (question.roundTitle) {
         return (
           <div
-            className="py-8 px-12 w-full text-lg font-bold"
+            className="px-8 md:px-12 py-4 w-full text-lg font-bold"
             key={question.roundTitle}
           >
             {question.roundTitle}
@@ -92,7 +92,7 @@ const ResultsPage = () => {
         return (
           <div
             key={idx}
-            className={`py-4 px-20 flex justify-between font-medium ${
+            className={`px-12 md:px-16 py-4 flex justify-between font-medium ${
               question.isCorrect ? "bg-green-50" : "bg-red-50"
             }`}
           >
@@ -100,7 +100,7 @@ const ResultsPage = () => {
             <p
               className={question.isCorrect ? "text-green-600" : "text-red-600"}
             >
-              {question.isCorrect ? "Correct" : "Incorrect"}
+              {question.isCorrect ? "Correct" : "Wrong"}
             </p>
           </div>
         );
@@ -109,7 +109,7 @@ const ResultsPage = () => {
   };
 
   return (
-    <div className="py-8 w-full">
+    <div className="w-full">
       <QuizHeader
         section={activity.activity_name}
         title={
@@ -124,7 +124,11 @@ const ResultsPage = () => {
       <div className="flex flex-col w-full divide-y border-y mb-12">
         {renderResults()}
       </div>
-      <Button label="Home" align="center" onClick={() => navigate("/home")} />
+      {resultsList.length > 0 ? (
+        <Button label="Home" align="center" onClick={() => navigate("/home")} />
+      ) : (
+        ""
+      )}
     </div>
   );
 };
