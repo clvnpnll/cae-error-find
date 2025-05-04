@@ -12,6 +12,7 @@ import { useEffect } from "react";
 import { useActivityStore } from "../store/useActivityStore";
 import NotFound from "./pages/not-found";
 import axios from "axios";
+import LoadingPage from "../components/loading";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,7 +27,7 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  const { setActivities } = useActivityStore();
+  const { isLoading, setActivities, setIsLoading } = useActivityStore();
 
   useEffect(() => {
     const fetchActivities = async () => {
@@ -45,6 +46,7 @@ function App() {
 
       if (res.status == axios.HttpStatusCode.Ok) {
         setActivities(res.data.activities);
+        setIsLoading(false);
       }
     };
 
@@ -52,9 +54,15 @@ function App() {
   }, []);
 
   return (
-    <div className="py-4 md:py-8">
-      <RouterProvider router={router} />
-    </div>
+    <>
+      {isLoading ? (
+        <LoadingPage />
+      ) : (
+        <div className="py-4 md:py-8">
+          : <RouterProvider router={router} />
+        </div>
+      )}
+    </>
   );
 }
 
