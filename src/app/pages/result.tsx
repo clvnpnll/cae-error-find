@@ -11,6 +11,7 @@ const ResultsPage = () => {
   const { answerSheet, activityIndex, quizDone } = useAnswerSheet();
   const [resultsList, setResultsList] = useState<any[]>([]);
   const [score, setScore] = useState(0);
+  const [resultsLoaded, setResultsLoaded] = useState(false);
   const [totalQuestions, setTotalQuestions] = useState(0);
 
   const activity = useMemo(
@@ -62,6 +63,7 @@ const ResultsPage = () => {
       }
 
       setResultsList(items);
+      setResultsLoaded(true);
       setScore(score);
       setTotalQuestions(totalQuestions);
     });
@@ -124,10 +126,8 @@ const ResultsPage = () => {
       <div className="flex flex-col w-full divide-y border-y mb-12">
         {renderResults()}
       </div>
-      {resultsList.length > 0 ? (
+      {resultsLoaded && (
         <Button label="Home" align="center" onClick={() => navigate("/home")} />
-      ) : (
-        ""
       )}
     </div>
   );

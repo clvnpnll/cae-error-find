@@ -31,7 +31,10 @@ const HomePage = () => {
 
   return (
     <div>
-      <QuizHeader section="CAE" title="Grammar Check" />
+      <QuizHeader section="CAE" title="Error Find" />
+      <p className="px-8 md:px-12 pb-8 text-lg md:text-xl">
+        This game teaches you to find mistakes in written text.
+      </p>
       <div className="flex flex-col w-full divide-y border-y mb-12">
         {activities.map((activity, idx) => {
           return (

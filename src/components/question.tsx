@@ -35,7 +35,7 @@ const Question = ({ question, choices = [], onSubmit }: QuestionProps) => {
           return (
             <button
               key={idx}
-              className={`flex w-full items-center uppercase justify-center p-4 md:p-8 border-b font-bold `}
+              className={`flex w-full items-center uppercase justify-center p-4 md:p-8 border-b font-bold hover:bg-slate-100`}
               // ${
               //   answer == choice.value
               //     ? "bg-slate-200"
