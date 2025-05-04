@@ -29,7 +29,9 @@ function App() {
 
   useEffect(() => {
     const fetchActivities = async () => {
-      const res = await axios.get(import.meta.env.VITE_ACTIVITIES_API_URL);
+      const res = await axios.post(import.meta.env.VITE_PROXY_API_URL, {
+        "my-url": import.meta.env.VITE_ACTIVITIES_API_URL,
+      });
 
       if (res.status == axios.HttpStatusCode.Ok) {
         setActivities(res.data.activities);
