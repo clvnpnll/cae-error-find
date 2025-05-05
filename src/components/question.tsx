@@ -1,6 +1,4 @@
 import { QuestionMarkdown } from "./questionMarkdown";
-// import { useState } from "react";
-// import Button from "./button";
 
 interface QuestionProps {
   question: string;
@@ -9,13 +7,6 @@ interface QuestionProps {
 }
 
 const Question = ({ question, choices = [], onSubmit }: QuestionProps) => {
-  // const [answer, setAnswer] = useState<any>();
-
-  // const handleSubmit = () => {
-  //   onSubmit(answer);
-  //   setAnswer(null);
-  // };
-
   return (
     <div className="flex flex-col">
       <div className="flex w-full px-8 md:px-12 py-8 border-y text-lg bg-slate-50">
@@ -27,13 +18,6 @@ const Question = ({ question, choices = [], onSubmit }: QuestionProps) => {
             <button
               key={idx}
               className={`flex w-full items-center uppercase justify-center p-4 md:p-8 border-b font-bold hover:bg-slate-100 transition`}
-              // ${
-              //   answer == choice.value
-              //     ? "bg-slate-200"
-              //     : "hover:bg-slate-100"
-              // }
-              // `}
-              // onClick={() => setAnswer(choice.value)}
               onClick={() => onSubmit(choice.value)}
             >
               {choice.label}
@@ -41,12 +25,6 @@ const Question = ({ question, choices = [], onSubmit }: QuestionProps) => {
           );
         })}
       </div>
-      {/* <Button
-        label="Next"
-        disabled={answer == null}
-        align="center"
-        onClick={handleSubmit}
-      /> */}
     </div>
   );
 };

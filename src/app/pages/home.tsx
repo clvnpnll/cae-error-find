@@ -50,7 +50,6 @@ const HomePage = () => {
       </div>
       <Button
         disabled={!quizDone}
-        // className="bg-teal-500 text-white"
         label="Results"
         align="center"
         onClick={() => navigate("/results")}
