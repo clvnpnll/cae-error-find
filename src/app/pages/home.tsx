@@ -40,7 +40,7 @@ const HomePage = () => {
           return (
             <button
               key={idx}
-              className="flex w-full items-center uppercase justify-center p-8 font-bold hover:bg-slate-100"
+              className="flex w-full items-center uppercase justify-center p-8 font-bold hover:bg-slate-100 transition"
               onClick={() => openActivity(idx)}
             >
               {activity.activity_name}

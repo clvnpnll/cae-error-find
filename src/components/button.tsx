@@ -20,7 +20,7 @@ const Button = (props: ButtonProps) => {
   return (
     <button
       disabled={disabled}
-      className={`flex w-full px-14 py-4 text-white bg-teal-500 hover:bg-teal-600 font-medium uppercase border-y 
+      className={`flex w-full px-14 py-4 text-white bg-teal-500 hover:bg-teal-600 font-medium uppercase border-y transition
         ${disabledClass} ${alignClass} ${className}`}
       onClick={onClick}
     >

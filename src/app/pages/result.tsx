@@ -3,6 +3,7 @@ import { useActivityStore } from "../../store/useActivityStore";
 import { useAnswerSheet } from "../../store/useAnswerSheet";
 import { QuizHeader } from "../../components/quizHeader";
 import { useNavigate } from "react-router-dom";
+import { QuizResultItem } from "../../components/quizResultItem";
 import Button from "../../components/button";
 
 const ResultsPage = () => {
@@ -92,19 +93,12 @@ const ResultsPage = () => {
         );
       } else {
         return (
-          <div
+          <QuizResultItem
             key={idx}
-            className={`px-12 md:px-16 py-4 flex justify-between font-medium ${
-              question.isCorrect ? "bg-green-50" : "bg-red-50"
-            }`}
-          >
-            <p>{question.key}</p>
-            <p
-              className={question.isCorrect ? "text-green-600" : "text-red-600"}
-            >
-              {question.isCorrect ? "Correct" : "Wrong"}
-            </p>
-          </div>
+            title={question.key}
+            isCorrect={question.isCorrect}
+            content={question.feedback}
+          />
         );
       }
     });
